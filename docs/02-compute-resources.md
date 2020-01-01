@@ -4,7 +4,7 @@ Note: You must have VirtualBox and Vagrant configured at this point
 
 Download this github repository and cd into the vagrant folder
 
-`git clone https://github.com/mmumshad/kubernetes-the-hard-way.git`
+`git clone https://github.com/jijeesh/kubernetes-the-hard-way.git`
 
 CD into vagrant directory
 
@@ -29,6 +29,7 @@ This does the below:
     | worker-1      | kubernetes-ha-worker-1 | Worker        | 192.168.5.21 |     2721         |
     | worker-2      | kubernetes-ha-worker-2 | Worker        | 192.168.5.22 |     2722         |
     | loadbalancer  | kubernetes-ha-lb       | LoadBalancer  | 192.168.5.30 |     2730         |
+    | desktop-1     | kubernetes-ha-desktop-1| Desktop       | 192.168.5.40 |     2740         |
 
     > These are the default settings. These can be changed in the Vagrant file
 
