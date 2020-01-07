@@ -13,6 +13,9 @@ CD into vagrant directory
 Run Vagrant up
 
 `vagrant up`
+Run if you want to provision
+
+`vagrant provision`
 
 
 This does the below:
