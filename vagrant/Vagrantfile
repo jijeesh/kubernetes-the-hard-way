@@ -6,12 +6,14 @@
 NUM_MASTER_NODE = 2
 NUM_WORKER_NODE = 2
 NUM_DESKTOP_NODE = 1
+NUM_SERVER_NODE = 1
 
 IP_NW = "192.168.5."
 MASTER_IP_START = 10
 NODE_IP_START = 20
 LB_IP_START = 30
 DESKTOP_IP_START = 40
+SERVER_IP_START = 50
 
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
 # configures the configuration version (we support older styles for
@@ -107,6 +109,28 @@ Vagrant.configure("2") do |config|
         node.vm.hostname = "worker-#{i}"
         node.vm.network :private_network, ip: IP_NW + "#{NODE_IP_START + i}"
 		node.vm.network "forwarded_port", guest: 22, host: "#{2720 + i}"
+
+        node.vm.provision "setup-hosts", :type => "shell", :path => "ubuntu/vagrant/setup-hosts.sh" do |s|
+          s.args = ["enp0s8"]
+        end
+
+        node.vm.provision "setup-dns", type: "shell", :path => "ubuntu/update-dns.sh"
+        node.vm.provision "install-docker", type: "shell", :path => "ubuntu/install-docker.sh"
+        node.vm.provision "allow-bridge-nf-traffic", :type => "shell", :path => "ubuntu/allow-bridge-nf-traffic.sh"
+
+    end
+  end
+  # Provision Server Nodes
+  (1..NUM_SERVER_NODE = 1).each do |i|
+    config.vm.define "server-#{i}" do |node|
+        node.vm.provider "virtualbox" do |vb|
+            vb.name = "kubernetes-ha-server-#{i}"
+            vb.memory = 4512
+            vb.cpus = 1
+        end
+        node.vm.hostname = "server-#{i}"
+        node.vm.network :private_network, ip: IP_NW + "#{SERVER_IP_START + i}"
+		node.vm.network "forwarded_port", guest: 22, host: "#{3720 + i}"
 
         node.vm.provision "setup-hosts", :type => "shell", :path => "ubuntu/vagrant/setup-hosts.sh" do |s|
           s.args = ["enp0s8"]
