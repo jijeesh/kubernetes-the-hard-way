@@ -171,7 +171,7 @@ if Vagrant::Util::Platform.windows? then
             node.vm.provision "allow-bridge-nf-traffic", :type => "shell", :path => "ubuntu/allow-bridge-nf-traffic.sh"
             node.vm.provision "allow-bridge-nf-traffic", :type => "shell", :path => "ubuntu/desktop.sh"
             node.vm.provision "ansible_local" do |ansible|
-            ansible.playbook = "playbook.yml"
+            ansible.playbook = "ubuntu/playbook.yml"
             ansible.install_mode = "pip"
             ansible.version = "2.2.1.0"
           end

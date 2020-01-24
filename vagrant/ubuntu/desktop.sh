@@ -1,7 +1,11 @@
 #!/bin/bash
 
 echo "welcome to desktop "
-# sudo apt-get update && sudo apt-get upgrade -y
+sudo apt-get update && sudo apt-get upgrade -y
+sudo apt-get install tasksel -y
+sudo tasksel install ubuntu-desktop
+sudo apt-get install virtualbox-guest-utils virtualbox-guest-x11 virtualbox-guest-dkms -y
+# sudo service lightdm start
 #    sudo apt-get install gnupg2 -y
 #    sudo curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 #    sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
