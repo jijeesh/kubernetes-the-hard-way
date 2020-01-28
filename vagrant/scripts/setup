@@ -14,6 +14,7 @@ vagrant up
 ./scripts/generate-kubeconfig-kube-proxy
 ./scripts/generate-kubeconfig-kube-controller-manager
 ./scripts/generate-kubeconfig-kube-scheduler
+./scripts/generate-kubeconfig-admin
 ./scripts/generate-kubeconfig-worker
 ./scripts/generate-cni-config
 ./scripts/generate-service-files
