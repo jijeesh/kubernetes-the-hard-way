@@ -16,4 +16,4 @@ trap 'popd' EXIT
 ./generate-etcd-server-cert
 ./generate-service-accounts-cert
 
-./generate-worker-certs
+# ./generate-worker-certs

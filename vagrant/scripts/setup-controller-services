@@ -8,7 +8,7 @@ pushd "${dir}/../"
 trap 'popd' EXIT
 
 for i in {0..2}; do
-  cat <<'EOF' | vagrant ssh "controller-${i}" -- sudo bash
+  cat <<'EOF' | vagrant ssh "master-${i}" -- sudo bash
 
 mkdir -p /var/lib/kubernetes
 
