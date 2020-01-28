@@ -13,5 +13,6 @@ trap 'popd' EXIT
 ./generate-kube-proxy-cert
 ./generate-kube-scheduler
 ./generate-kube-apiserver-cert
+./generate-etcd-server-cert
 
 ./generate-worker-certs
