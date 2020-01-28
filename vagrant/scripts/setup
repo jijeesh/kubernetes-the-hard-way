@@ -12,6 +12,7 @@ trap 'popd' EXIT
 vagrant up
 ./scripts/generate-certs
 ./scripts/generate-kubeconfig-kube-proxy
+./scripts/generate-kubeconfig-kube-controller-manager
 ./scripts/generate-kubeconfig-worker
 ./scripts/generate-cni-config
 ./scripts/generate-service-files
